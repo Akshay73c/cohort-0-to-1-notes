@@ -1,0 +1,99 @@
+Bash - nothing but a command line interface that lets you interact with your os
+       Actually, prompt is executed by kernel, so shell is just abstracting away all the intricasies of that for us.
+
+ls - lists down. comes with lot of options
+    ls -l : lists down with the metadata about the contents
+            permissions - noOfReferences - owner - grpOwner - sizeInBytes - dates,timeStamp - name
+            We can do this for specific folder also like ls -l foldername. (xx = foldername)
+    
+    ls -R xx : gives details about sub directories as well. so its like ls -l for subdirectories included.
+    ls -t xx : lists by timestamp. (newest first)
+    ls -lr xx : lists by timestamp (reverse order)
+    ls -s xx: lists by size.
+    ls -la xx : hidden files
+    (We can combine these like ls -lt, -lR)
+touch - create a file
+cat - display content of a files
+mkdir - create directory
+        mkdir -p : create directories recursively
+
+Permissions 
+    2 ways to manage : symbolic way and numeraic way
+
+chmod - change file permissions, modify read, write, execute (rwx) permissions
+        takes in 2 things : who and what 
+        and then specify the folder/file name
+        `chmod u+x newScript.sh`
+        (u means user, g means group, + means add permission, - means remove permission)
+
+    numeric way:
+        4 - read,
+        2 - write
+        1 - execute
+        `chmod nnn foldername`
+        so if all permissions means 7, if read and write means 6, in this way.
+
+echo - display something in terminal    
+
+`head -n filename` - top of file (default 10 lines)
+`tail -n filename` - bottom of file
+
+pipe operator - | - combine 2 commands
+    like `command1 | command2`
+
+wc - line count, word count, character count
+
+grep - lets us find occurences of certain words/expression within a certain file/directory/project
+       `grep "xyz" filename`
+       options available
+       `grep option "xyz" filename`
+            -o : perfectly matched occurences
+            -w : loosely matched. like wherever is matched
+            -v : unmatched. apart from the "xyz"
+            -c : no of lines of occurences
+            -h : give the occurences/line
+            -hi : occurences with case insensitive
+            -hir : hi within a directory
+                   gives what is occuring, where is occuring
+            -hin : hi with line numbers
+            -A : gives previous lines of the matched
+            -B : gives succeding lines
+            -C : give both  
+
+history - to view all the previously executed commands
+
+The vi command
+    vim command. Ooof.
+    Lets you edit files. ikr.
+    but very opinionited. we need to go in insert mode to edit.
+    i = Insert
+    how to exit? - press escp, and then write `:q!` and enter.
+    This doesn't save. To save - write `:wq!`
+
+The sed command
+    similar to grep. With substitution feature
+    `sed [OPTIONS] SCRIPT FILE...`
+    sed's substitute command is like : `s/pattern/replacement/` 
+        s is the word we're trying to replace
+
+    options 
+        -ibackup : creates a backup file as well
+
+Shell scripting : 
+    `
+    #!/bin/bash
+    echo "Hey there"
+    mkdir newDirectory
+    cd newDirectory && touch newFile.txt
+    `
+    On the first line of script, we must specify which interpreter to use to parse our script. (here Bash)
+    and then commands.
+    to execute : `bash scriptName`
+    
+awk - is itelf in it a scripting lang. for shell scripting. does a bunch of things
+    awk [options] script filename
+    How patterns are defined : `(pattern){action}`
+    `awk '/ERROR/{print $0}' log.txt`
+    actions are : print, replace
+    $1 means first colmn, $2 means second...
+        

@@ -1,0 +1,36 @@
+what is the goal of a website/browser?
+    to allow people to hit some specific server and get back some content
+    
+//Those servers have some code/specs that interpret our code on how to render it or like what to do with it.
+
+Why only HTML, CSS, JS? why not c/c++?
+    see, whoever created websites or thought of the internet, said yeah these 3 langs only.
+
+HTML tells us what all should be put on our website
+2 jargons
+1. Tags
+    primitives that html gives us to create some things
+    need of a tag is it gives some basic structure to the content
+    (coz see, if we just write "hi there"in a html file and open it in browser, it will show 'hi there'. but we dont want like text-after-text, we want some structure, right. so tags.)
+    <html>, <head>, <div>, <a>, etc
+
+    <html> - not so imp, just to like put your content inside this.
+            (note that even if we dont write it, the code works!!)    
+    llly for
+    <head> - metadata (info that doesn't necesarrily get rendered)
+    and 
+    <body> - info to render
+    (Even if we dont write structure like this and simply started with div tags, it works fine(browser injects it itself))
+
+    <div> - stands for one division (one width/line) - separate section of your page 
+    <span> - in same width but in different tags (mostly for style purpose) Baccho wala stff bhenchod
+    
+    some tags for writing texts : <h1> to <h6> - increase size without CSS
+
+    <img src="">
+    <a href=""> - insert links to other page 
+
+2. Attributes
+    extra things given to a tag, help define what what specific tag should do
+    like src in <img>, href in <a>, onClick in <button>
+    so, every tag can have multiple of tags

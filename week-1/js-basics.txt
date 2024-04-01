@@ -1,0 +1,80 @@
+Why langauges? - coz its hard to code in 0s and 1s
+
+see, everything that is not currently running resides in SSD. the moment we run anything, it goes in the RAM.
+but what exactly goes in RAM? - see everything at the end runs as 0s and 1s. so whats finnaly going into RAM is 0s and 1s
+
+Whenever you execute anything on your machine, it goes into RAM.
+What goes into RAM are 0s and 1s, not any source code, not any C++ program.
+
+C/C++, Java all are high level langs which we write code in. and the compilers convert them to 0s and 1s - the machine code which is what goes into RAM
+
+Compilers - convert high level developer friendly source code into 0s and 1s(machine code)
+interpreted - compile line by line
+compiled - compile whole
+Strict - need to specify data type beforehand
+Dynamic - no need to specify types and allows us to change types
+
+One single core can run a certain code at a single time (Note-Context switching is also there),  a single core can't run two things at a time
+Single threaded nature of JS - means JS can only use one of these cores at a time
+so, its sorta bad lang for scalable systems. There is a way to make it use all cores of your machine
+
+(Multitthreading - split code across cores. yeah we can do that in Java/C++)
+
+setTimeout(funToCall, AfterHowMuchDuration) - ex. setTimeout(sayHello, 3*1000)
+
+setInterval(funToCall, AfterWhatInterval) - calls at an interval
+
+Recursion is fxn calling itself
+Callback is fxn calls another fxn
+        - passing fxns as arguments
+        and the function which is passed is called the callback function.
+        like doSomething(arg1, arg2, callbackFxn);
+
+Anonymous fxn - no name. Mostly used as callbacks 
+..................................................................................................................................................................
+
+Synchronus - sequentially. one thing is happenening at a time
+Asynchronus - Happpens in parts. Multiple things are context switching with each other. Parallely. so like multiple things at a time.
+              achieved by delegating or context switching
+
+some common async fxns - setTimeout, fs.readFile, fetch(to fetch some data from an API endpoint)
+
+There are 4 things in JS architecture that lets it do Asynchronus: http://latentflip.com/loupe/
+Call stack      - what is being called at / put in stack
+
+Web APis        - Kamaladidi. the guy we deligate our task to.
+                  Handles the clock.
+                  (wasn't really part of js. somethings handled by browsers.)
+
+Callback Queue  - once that guy's (webApis) task is done. it waits here. in callback stack.
+                  and after our thread becomes idle, is when you pull that api task from this queue and put it in call stack to run.
+Event loop      - Handles this all. check queue and the call stack and pulls,puts stuff.
+
+So, real use of callbacks makes more sense in asynchronus. (coz asyncs need that callback to put it in queue or like for the clock.)
+
+Promises - are like syntactic sugar. to get rid of callbacks.
+
+How to create our own async fxn?
+it is just a wrapper on top of another async fxn which is fine.
+usullly, all async fxns we'll write will be on top of js provided async fxn only.
+
+so, instead of we providing a callback fxn to the Fxn, the Fxn itself returns a Promise that it'll do the task.
+and we can call .then on that promise if resolved. OR .catch if errored.
+
+What even is a promise? - its justa class that makes callbacks and async fxns slightly more readable.
+                          promise must has an arg - the resolve fxn or like onDone.
+
+Whenever we create a promise, we need-must to pass in a fxn as its first arg which has resolve as its first arg.
+.then is called when the outer async fxn is resloved.
+We can use promise outside of a fxn too haan.
+But why get rid of callbacks? Promises are pretty. 
+
+Async await - is also just a syntactic sugar. still uses callbacks/promises under the hood. 
+its for getting rid of .then , .catch stuff and to get rid of callback fxn writing.
+simply just async and await words. bass.
+
+If a fxn is returing a promise, you can put await in front of it.
+untill that promise is resolved means that upper fxn is done.
+Any fxn that wants to use await, needs to be async.
+
+AWAIT IS ONLY VALID IN ASYNC WRAPPER.  

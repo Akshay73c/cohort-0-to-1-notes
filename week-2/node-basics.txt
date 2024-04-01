@@ -1,0 +1,71 @@
+What is ECAMAScript? javascript? Nodejs? Bun?
+
+ECAMAScript - The Specification
+              is a scripting lang specification on which javascript is based.
+              specification - means documentation of js stds like how the js compiler should work. 
+              it serves as a guideline of the 'rules' for scripting lang design
+              ECMA international manages this.
+              Versions - ES5, ES6/ES2015, ES2017, etc
+
+Javascript - the Implementation 
+            is the scripting lang that confronts to ECAMAScript specs. 
+            js also includes extra stuff beyond ECAMAScript like DOM
+            
+js compilers - chromes V8             -  C++
+               firefox's Spidermonkey -  C++ + Rust
+ 
+at first js was only for browsers. 
+
+Nodejs - V8 engine + some backend things
+        it is a runtime env - somthing that can run js, compile js and some stuff
+
+Bun - yeah, a runtime for js - competitor for Nodejs. outperforms 
+      written in Zig
+
+What can we do with NodeJS?- create CLIs, create a video player, game,
+                             CREATE A SERVER.
+
+HTTP - a protocol that for machines to communicate, specifically for websites - frontend to backend
+What is an HTTP server?: some code that follows HTTP - the thing that is ran and does the logic 
+
+client throws/reqs something at server, server does something and responds a response
+
+Things client needs to woory about : Protocol
+                                     Address (URL/Ports)
+                                     Route
+                                     Headers, body, query params
+                                     Method
+
+Things server needs to worry about : Response (headers and body)
+                                     Status codes
+
+(
+    What happens when you send a req to google.com?
+        Browser parses URL, does a DNS lookup(URL to IP), establishes a connection with that IP,
+        req body as acted upon at server, sends response, frontend acts on it. we see on the UI.
+)
+
+Express - a library for NodeJS - helps us create Nodejs servers
+
+syntax - app.method('route', 'handler fxn -> (do something and send back res.)')
+
+rest API  - means explicitely exposed to be used outside of a browser
+
+sometimes 
+const port = process.env.PORT || 3000
+        lets you access environment variable 
+
+The body-parser module enables us to parse incoming request bodies in a middleware. 
+Express server needs to know what type of data you're sending over the network. 
+
+npm - node package manager - lets you bring/install/manage packages that are not on your machine
+npx - node package executable? - lets you just use the package instantly, without needing to install it. like you can do nox nodemon index.js
+                                 immediately execute on terminal
+What is a thread? - it can do some task.
+so single threaded - one thing at a time
+   multi-threaded - many things at a time
+  
+Servers(more specifically HTTP) lets us expose our logic(our code) to the world.
+How do i create HTTP server? - we can write it in any lang
+                               Javascript - NodeJS(Express, nextjs), Bun
+                             

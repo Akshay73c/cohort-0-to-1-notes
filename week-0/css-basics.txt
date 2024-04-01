@@ -1,0 +1,23 @@
+CSS - lets you add styles, position things on page
+
+Common styling attributes
+    font-size : size of text
+    border - line border (space betn the padding and margin)
+    border-radius : the radius of the corner curve
+    padding : the breathing space inside the div 
+    margin : space outside the div - the space betn divs
+    box-shadow : the shadow - it excepts 4 things - 3 values and 1 color (1st - direction in which the shadow gives)
+
+Positioning
+divs always take up all the space available horizontally
+spans only take up as much space as needed
+
+Can we make divs take up only the space needed? like how can you position them some space away on same horizontal?
+    Yes. margins. and?
+    float property - float to right/left
+    but this is the dumb way. right way is flexbox.
+
+    Flexbox : Positioning the children.
+            'display:flex' on parent makes all its immediate children divs reside in the same line. (div siblings inside parent)
+            and then there are diff attributes for the inside positioning
+                justify-content

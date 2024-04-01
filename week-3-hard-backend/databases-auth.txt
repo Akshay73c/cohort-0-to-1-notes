@@ -1,0 +1,60 @@
+The fetch API - fetch data from a backend.
+                fetch() wasn't part of javascript. Its part of the runtime.
+                we can set method like get, post... Default is GET.
+                
+Hashing - converting a simple string into some gibberish and same always.
+          why? - safety.
+          a single input will always give single output
+          one-way: You cannot convert the hash back into the original string. 
+          (so, hashing doesnt require a key/password)
+
+Encryption - This is two-way(Provided you have a key). string <--> gibberish.
+             (Note : imgs dont get stored and 2s. in dbs directly like jpg. Stored like 1s)
+             But anyone with the key can decrypt the code.
+
+Json Web Token - JSON: works with only json data,
+                 Web: used on web 
+                 Token: creates a token at the end.
+                 Anyone who has the token can see the original contents.
+whats a jwt? - some complex input object converted using a password into simple output object(by somehow compressing), anyone having that output can see the input.
+why even do it? - there's something called verification that only the servers can do!
+                  jwt.verify().
+                  very similar to encryption + verification 
+
+                  
+What verification? - 2 functions of jwt: jwt.sign() - to create token
+                                         jwt.verify(token, jwtPasswword) - to verify
+
+[   Recap:
+    Hashing: one way. Given the output, no one can find out the input.
+             Changing the input a lil bit changes the output by a lot
+
+    Encryption: two way.
+                A string is encrypted using a password.
+                String can be decrypted using the same password.
+
+    JWT: Its neither of encryption or hashing (its techically a digital signature)
+         Anyone can see the original outputgiven the signature.
+         Signature can be verified only using the password.
+]
+
+Local Storage - A place in your browser where you can store some data. like a browser's storage.
+                Usually things that are stored include - Authentication tokens,
+                                                         User language preference
+                                                         User theme preference
+
+                Even if we restart the machine, the data remains there. So the frontend can relay back to this in every request.
+                Stored almost forever. When deleted? - whenever we want.
+Why here - frontend can send jwts(after receiving) thru localstarage for our aunthentication at the backend.
+
+_______________________________________________________________________________________________________________________________
+
+Databases - why? - Real data is dynamic.
+                   if we update inmemory objects, the updates are lost if the process restarts.
+                   There are multiple servers.
+Remember: user hits backend. Backend hits db. User cannot hit db directly.
+There are multiple types of databses:
+                                      Graph DBs,
+                                      Vector DBs,
+                                      SQL DBs,
+                                      NoSQL DBs

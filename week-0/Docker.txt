@@ -1,0 +1,4 @@
+Docker - platform for developing, shipping and running application
+       - allows us to separate our app from our local machine
+    
+Docker packages and run application in a loosely isolated environment called - container
