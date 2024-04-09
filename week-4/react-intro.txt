@@ -1,0 +1,29 @@
+DOM manipulation is acutally very hard to write as a dev.
+
+methods: document.createElemet() - not yet put in the DOM
+         We need to tell it - document.appendChild()
+         element.setAttribute()
+         element.childern()
+
+Very hard to add and remove these DOM elements - No central state
+What if we have a fxn that takes this "state" of page as an input and creates the next desired output!
+State - a varibale which has how your application should look
+Also, anytime the state changes, calculate the diff, and based on diff update the dom. Dont clear the dom, readd. Just update based on diff.
+how? - By remembering the old todos in a varibale - Virtual DOM
+
+React is that fxn we want - takes care of whole how to create dom elemnts and how to put them on dom, rendering  
+
+React is NOT a website framework. its the diff calculating thing/library. Its platform agnostic. 
+react-dom is what deals with the website dom stuff.(add, update stuff) 
+(if i work on native app, i'd use react-native)
+
+jsx - a javascript file returning html - combi of js and html 
+      import something at the top, export something at the bottom, define a function that does some js logic and returns some html. 
+
+why do this? - when you have to create a dynamic website,
+               you write a lot of JS that does DOM manipulation and most jtml is getting injected by javascript and maim html stuff is less only.
+               so, its a javascript file and returns us the html which is then injected. (we did the same in dumb todos - create, assemble and return dom element)
+               so, encapsulate in react and we just use it.
+               React also lets you create dom elements, haan.
+
+State varaibles - any varibale that reacts needs to concsiously watch 

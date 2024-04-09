@@ -1,0 +1,24 @@
+<html>
+
+    <script>
+        function addTodo() {
+            const title = document.getElementById("title").value;
+            const desc = document.getElementById("desc").value;
+            const originalHtml = document.getElementById("container").innerHTML;
+            //document.craeteElement - foundation for react
+            const childDiv = document.createElement("div") // creates a <div><div/> element which is yet not part of the DOM
+            childDiv.innerHTML = title;
+            document.getElementById("container").appendChild(childDiv);
+
+
+        }   
+    </script>
+    <div>
+        <input id="title" type="text" placeholder="title"> </input> <br/>  <br/>
+        <input id="desc" type="text" placeholder="desc"> </input> <br/> <br/>
+        <button onclick="addTodo()">Add todo</button>
+        <div id="container">
+
+        </div>
+    </div>
+</html>

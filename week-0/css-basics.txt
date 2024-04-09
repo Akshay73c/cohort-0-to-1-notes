@@ -21,3 +21,6 @@ Can we make divs take up only the space needed? like how can you position them s
             'display:flex' on parent makes all its immediate children divs reside in the same line. (div siblings inside parent)
             and then there are diff attributes for the inside positioning
                 justify-content
+
+Ids are supposed to be unique. Used to uniquely identify a div/span/input/button
+You can use a same class to multiple elements. 

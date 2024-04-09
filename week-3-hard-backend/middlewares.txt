@@ -1,12 +1,11 @@
-Why middlewares?
-    usually for prechecks : authentication, input validation
+Why middlewares? - usually for prechecks : authentication, input validation
 
 In express, there are actually 3 args for the callback fxns of the app.method(). - req, res, and next - 
-                                                                                         next fxn/middleware to call.
+                                                                                                 next fxn/middleware to call.
 
 And, we can add multiple callback fxns in app.method().
 `app.get("/path", m1, m2, (req, res)=>{})`
-But where does the control react when the url hits? - first. Then second. then third ....
+But where does the control reach when the url hits? - first one. Then second. then third ....
 
 YOU CAN'T CALL res.json TWICE. (coz you cant give response to a http request twice obvio!)
 
@@ -17,7 +16,7 @@ app.use() - Usually takes a midddleware as input.
             This use means this middleware will be called everywhere.
             
 Input validation - why? - anyone can hit our backend, so for safety. Client shouldnt see anything of backend (by reading exception/error). Need to handle it.
-                   How? - global catches - its jussa middleware that we put   the end of our callback fxn.
+                   How? - global catches - its jussa middleware that we put at the end of our callback fxn.
                    helps you give the user a better error msg
                    `app.use(catcheFunction(err, req, res, next))`
                    Remember : express.json at the start and global catches at the end
@@ -27,8 +26,22 @@ Input validation - why? - anyone can hit our backend, so for safety. Client shou
 Zod - Input Validation Library https://zod.dev/
       TypeScript-first schema validation with static type inference
       Zod can be used independent of express. Its justa a validation library that lets you validate input givena schema.
-      `first install it then create a instance of it and then can use fxns like z.fsafeParse()`
+      `first install it then create a instance of it and then can use fxns like z.safeParse()`
       Coercion for primitives : to force someone to do something.
 
 Authentication - Give the user back a token on signup, ask him to send back the token in all future reqs, amd when logs out, ask him to forget the token.
                  why not store the email&pass only in the browser? - coz the localstorage is very public.            
+
+______________________________________________________________________________________________________________________________________________________________
+
+Middlewares can -Execute any code
+                -Make changes to req, res objects
+                -End the req-res cycle or call next middleware    
+
+Express is a routing and middleware web framework havinf very minimal functionaloty of its own.
+        its jussa series of middleware fxn calls
+
+Remember: Order of middlewares matter. Must be defined/called beforehands.
+
+Global middleware - used by all routes by default
+                    how - `app.use(() => {})`

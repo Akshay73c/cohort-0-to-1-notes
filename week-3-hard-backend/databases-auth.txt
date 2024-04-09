@@ -26,15 +26,15 @@ What verification? - 2 functions of jwt: jwt.sign() - to create token
                                          jwt.verify(token, jwtPasswword) - to verify
 
 [   Recap:
-    Hashing: one way. Given the output, no one can find out the input.
+    Hashing: one-way. Given the output, no one can find out the input.
              Changing the input a lil bit changes the output by a lot
 
-    Encryption: two way.
+    Encryption: two-way.
                 A string is encrypted using a password.
                 String can be decrypted using the same password.
 
-    JWT: Its neither of encryption or hashing (its techically a digital signature)
-         Anyone can see the original outputgiven the signature.
+    JWT: Its neither of encryption nor hashing (its techically a digital signature)
+         Anyone can see the original output given the signature.
          Signature can be verified only using the password.
 ]
 
@@ -45,7 +45,7 @@ Local Storage - A place in your browser where you can store some data. like a br
 
                 Even if we restart the machine, the data remains there. So the frontend can relay back to this in every request.
                 Stored almost forever. When deleted? - whenever we want.
-Why here - frontend can send jwts(after receiving) thru localstarage for our aunthentication at the backend.
+Why here - frontend can send jwts(after receiving first) thru localstorage for our aunthentication at the backend.
 
 _______________________________________________________________________________________________________________________________
 
@@ -58,3 +58,37 @@ There are multiple types of databses:
                                       Vector DBs,
                                       SQL DBs,
                                       NoSQL DBs
+
+MongoDB - NoSQL DB, schemaless. scales well and is a decent choice for most use cases.
+     
+How does the backend connect to the database? - Using libraries.
+
+Mongoose - is mongodb library.
+           first create connection using the URI string,
+           tell what your schema lokks like,
+           do queries.
+
+There's also a mongoDB driver library. Mongooseis built on mongoDB with some extra functions and stuff (unsure?)
+
+_______________________________________________________________________________________________________________________________
+
+JWTs
+    for verification at server.Dot.
+    my jwt = just like my chequebook.
+    They are issued by the backend when you signin.
+    Anyone can create something very similar but the backend will reject it.
+    If you loose the original jwt then there is a problem.
+    
+    There are 3 things: 1.generating a jwt
+                            The function to generate is sign()
+                                `jwt.sign(the value i want to encode, the passowrd i want to encode with)`
+                            This secret is what the bank has and only the bank has
+                            This token has been generated using this secret and hence this token can only be verified using this secret
+    
+                        2.decoding jwt
+                            `jwt.decode()`   
+                        3.verifying jwt
+                            `jwt.verify()`
+                            Remember: verify is something wierd. if verified, returns true but if wrong input, throws error.
+JWT saves you a database call
+["Anyone can decode the jwt but only the backend can verify."]

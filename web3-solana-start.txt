@@ -1,0 +1,33 @@
+Solana 
+create token, 
+wallet - a place where you store ypur private keys - give access to your funds or tokens
+backpack - reopen artist hip thing omit side decline case miss echo ability young
+
+public key - which i can share with world - like our UPI ID
+
+you create a mint for your token/currency and then you preint money from that, then you get that in your own associated account and then distribute it with everyone.
+
+Solana is a blockchain built for mass adoption. 
+It's a high performance network that is utilized for a range of use cases, including finance, NFTs, payments, and gaming. 
+Solana operates as a single global state machine, and is open, interoperable and decentralized.
+
+blind same fold grant seat snack sleep comic panda stable office afford
+
+pubkey: DaiuJnvTXNCBHDJg2SJ1oCFhP4GQV5hVhNPk8GaspBec
+
+[200,94,36,61,46,68,67,44,225,125,132,7,245,146,159,34,92,167,41,140,57,203,38,78,53,149,67,40,60,192,45,110,186,239,201,211,34,116,40,28,81,157,226,130,192,158,52,171,129,47,37,61,186,63,195,127,220,30,213,152,178,246,18,69]
+
+\bin>spl-token.exe create-token
+Creating token 971zpGQQjgzTwZBrteSxjLqzvhifH86P1tov2bXfkLem under program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA
+
+Address:  971zpGQQjgzTwZBrteSxjLqzvhifH86P1tov2bXfkLem
+Decimals:  9
+
+Signature: h3PcLxgPj8BbgjTSxijhX5PdcEXtpQsbDtdHPheyc4VHvDD9Nj4e3CxGCHC1chxne1KSq7nBqK4PX6oAycBBEWS
+
+_____________________
+
+\bin>spl-token.exe create-account 971zpGQQjgzTwZBrteSxjLqzvhifH86P1tov2bXfkLem
+Creating account Eze5v7uFoR1vUf4cSAJHqpxcBkpubZiPyEvufNeQ7ort
+
+Signature: 59QmZH8DLHD1YpG7esVEom2LUfUCozMVUEvGdV9Rya5iG356Hti56Hh6fFwczBUyo9uUDWqzq1zVnRTmV1EJwvgW

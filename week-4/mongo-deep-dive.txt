@@ -1,0 +1,22 @@
+db - data is stored persistently - coz servers are scaled, are transient. 
+
+why don't we let users hit db directly?
+    1. dbs were/are written in diff protocols that browsers dont understand.
+    2. dbs don't have granual access.(part wise access). Server can do this by auth checks.
+    Although: there are dbs like firebase having granual access and let http/browsers talk to db directly!
+
+Mongoose - library 
+           Mongoose lets you define schema. But mongodb are schemaless?
+           see, mongodb doesn't adhere to this schema, we can insert anything to it. Its just this mongoose library. 
+           why? whats the benifit?- autocompletions. validating data before it goes in db.
+                                    and coz devs are dumb and forget stuff.
+Mongodb lets us add nested objects in the data. 
+So, can create re lationships easily. by using 'type' and 'ref'.
+ObjectId - randomly generated - unique way to identify a data.
+
+
+model - final object on which we can do CRUD. like User.create()
+
+Jargons in Databases: Cluster - like a collection of databases
+                      Database - means collection
+                      Table - means docs     

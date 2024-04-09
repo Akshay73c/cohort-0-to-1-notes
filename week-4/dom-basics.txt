@@ -1,0 +1,31 @@
+DOM - Programming interface for web documents.
+      represents the page as a tree of objs; each obj means a part of the page.
+
+What was javascript? - an implementation of the ECMAScript. Nothing related to browser. Jussa programming lang
+But JS that runs in browser has some extra fxns also.
+Browser JS = JS scpecs + (setTimeout, fetch, setInterval, document)
+                                                          
+In HTML/CSS, Ids are used(supposed to) uniquely identify a div/span/input/button
+But classes also do similar then whyy Ids?
+     "Ids let us access elements via the DOM API!"
+     so Ids originally were for CSS, but we mostly use it for Javascript. 
+
+To make any website dynamic, you need javascript. More specifically the DOM API.
+
+DOM lets us manipulate our html page using javascript.
+
+document - global variable using which we can manipulate the DOM
+           gives us reference to the html element - a dom object
+
+fetch - lets us hit an API/backend
+        [Note: fetch just returns a response. It also doesnt know its type.
+              so we need to again call a async fxn like .json() or .text() as per our expectation.]
+        Thats why we prefer axios. it directly gives us the data.      
+
+Debouncing - you dont send out req immediately - delay in sending out the req
+             to avoid multiple reqs going out
+             why? - minimize 
+             how ? - setTimeout, clearTimeout
+
+Throttling - similar to debouncing but at the backend
+             avoid muliple incoming reqs 

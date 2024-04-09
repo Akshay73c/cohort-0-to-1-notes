@@ -1,0 +1,47 @@
+<html>
+  <script>
+    let timeout;
+    function debouncePopulateDiv() {
+      // delays the call to PopulateDiv untill ive not been called for 100ms
+      // and ive been called at least once
+      // how do you cancle a clock? - clearTimeout()
+      clearTimeout(timeout);
+      timeout = setTimeout(function () {
+        populateDiv();
+      }, 1000);
+    }
+
+    async function populateDiv() {
+      const a = document.getElementById("Principal").value;
+      const b = document.getElementById("Time").value;
+      fetch(`https://sum-server.100xdevs.com/sum?a=` + a + "&b=" + b).then(
+        (response) => {
+          response.text().then((ans) => {
+            document.getElementById("finalSum").innerHTML = ans;
+          });
+        }
+      );
+    }
+  </script>
+
+  <body>
+    <input
+      oninput="debouncePopulateDiv()"
+      id="Rate"
+      type="text"
+      placeholder="First number"
+    />
+    <br />
+    <input
+      oninput="debouncePopulateDiv()"
+      id="Principal"
+      type="text"
+      placeholder="First number"
+    />
+    <br />
+    <input id="Time" type="text" placeholder="First number" /> <br />
+    <!-- When we click on button, we want the data to appear in this div -->
+    <!-- This is where we'll use the global document variable!! -->
+    <div id="finalSum"></div>
+  </body>
+</html>
