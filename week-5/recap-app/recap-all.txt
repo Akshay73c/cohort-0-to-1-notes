@@ -1,0 +1,26 @@
+Whenever you get a work, add a README file.
+First build backend.
+
+Backend - initiallize a node project
+          most imp - put a package.json - what all packages and scripts, what all external dependecies you're using.
+          ["You do not share node modules. Share only package.json. It has everything."]
+          package-lock.json - with locked versions
+          
+dependecies - needed when you'll run your app          
+devDependencies - needed when you're developing yout app
+
+You cannot hit a backend url from a diff frontend url unless your backend allows tht frontend. Hence CORS.
+
+fetch() doesn't by default tell your backend about json data.
+We need to add a header like 
+`
+headers: {
+    "Content-Type": "application/json"
+}
+`
+Hence we use axios.
+______________
+created express 
+initialed 3 endpoints then dod zod stuff
+backend done.
+Then frontend

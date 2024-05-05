@@ -1,0 +1,21 @@
+Why react? - its hard to do DOM manipulations in convetional way
+             react makes this easy. Under the hood its HTML/CSS/JS only
+
+Jargons 
+State - an object that represents the current state of the app
+        its the dynamic things. Anything that changes.
+
+Component - how a DOM element should render, given a state.
+            re-usable, dynamic element that changes as per state.
+            a fxn at its core that does this stuff. Returns us what is required.
+
+Re-rendering - actual DOM being manipulated when the state changes
+
+jsx - a js file, inside which you can write both JS and xml
+
+index.html + main.jsx + App.jsx
+How does this all reactc code get converted to html/css/js?
+     npm run build  - creates  a dist folder which has just index.html and js stuff
+                    we can host this. 
+
+Whenever you have to write any js tuff in react code, wrap it in curly braces {}.                            

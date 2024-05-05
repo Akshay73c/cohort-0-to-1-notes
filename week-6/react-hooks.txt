@@ -1,0 +1,74 @@
+A component can only return a single top level xml
+    why? - makes it easy to do reconcilation - figuring out what dom compo needs to be changed.
+
+What's exactly a re-render? - anytime react does a DOM manipulation
+    1. react did some workto calculate what all should update in the compo
+    2. The compo actually got called 
+    3. The inspector shows you a bounding boz around the compo
+    It happens when: 
+    1. A state varibale changes that is being used.
+    2. A parent compo re-render triggers all children re-render. 
+["If a parent re-render, all its children re-render.dot."]
+
+    How to minimize re-renders? - 1. push the state down (to the compo that needs it)
+                                     Put the state varibale at the Lowest Common  Ancestor.
+                                  2. Use React.memo
+                                     lets you skip re-rendering a child component when its props are unchanged, even if its parent re-renders.
+                                     `const MemoizedComponent = memo(SomeComponent, arePropsEqual?)`
+                                     The parent does re-render, but the unchanged individual children don't.
+
+Keys - You need to give each array item a key — a string or a number that uniquely identifies it among other items in that array.
+       Keys tell React which array item each component corresponds to, so that it can match them up later.
+       This becomes important if your array items can move (e.g. due to sorting), get inserted, or get deleted.
+       A well-chosen key helps React infer what exactly has happened, and make the correct updates to the DOM tree.
+
+["Whenver you're rendering a list/array, make sure your list has a unique identifier for each elemnt and key = thatSpecificIdentifier"]
+
+Wrapper Card component - a compo that takes another compo as an input which it needs inside.
+                         use cleaner syntax like {children} - means everything you've written inside.
+______________________________________________________________________________________________________________________________________________________                         
+Side effects - ops that react outside of the functional scope of a React component. 
+               like Can affect other compo, interact with browser, perform async data fetching
+               Anything thats not related to DOM or rendering
+               setTimeout, fetch, setInterval, document.getElementById().innerHTML = ""
+
+Hooks - came from React 16.8
+        are fxns that allow us to 'hook into' react state and lifecycle features from fxn components.
+        Lets us do stuff similar to what we was done using lifecycle fxns (like onComponetMount, didMount etc)
+        Lets us use stateful logic and lifecycle features without writing a class (were prev possible only in class components)
+        Start with 'use'
+
+useState() - lets us describe the state of your app
+             whenever state updates, it triggers a re-render which finally results in DOM update
+             very good untill we want to hit a backend or use setTimeout
+             `const [val, setVal] = useState()` 
+
+useEffect() - allow us to perform side effects (under some condition)
+              side efeects? - backend call, setTimeout, setInterval
+              `useEffect(logic to run, dependency array)`
+                     (what should happen, when should happen)     
+["Lets us put conditions under which we want a certain code to run and not on evry re-render"]
+              Remember: The callback fxn here cannot be async  
+              dependency array - takes state variables as input
+                                 empty - code will run only on first render.
+              
+useMemo() - to rememeber a value across renders              
+            Memoization - you dont recompute something given an input - similar to caching. So that the fxn won't run agian and again untill there is some change.
+            In case of 'Expensive operartions/fxns'
+            very close to useEffect. But here we dont need to use a state variable            
+            mostly used when there are two state varibales dependent on each other. So we take one as a state vari and one as a memo variable.
+            `const fxn = useMemo(() => {}, [])`
+
+useCallback() - It is used to memoize fxns across re-renders  
+                also very similar to useMemo but for fxns (like remember its implementation across re-renders)
+                especially in cases involving child compos that rely on referencial equality to prevent unnecessary re-renders
+                to prevent re-rendering of child when the input fxn to it hasn't changed
+                how to use? - just wrap that inputFxn inside useCallback
+                `const fxn = useCallback(() => {}, [])`
+                      
+["useMemo is used for synchronous tasks/stuff and useEffect for async tasks/calls"]
+see, using useEffect can also do the sync tasks but there would be a slight delay. Remember the filtertask example.              
+["useMemo is for memoizing values and useCallback is for fxns "]          
+
+["memo is to wrap 'components', useMemo is for 'data/fxns' but both to minimize re-renders eventually"]
+Custom hooks - should start with use

@@ -1,6 +1,6 @@
 Solana 
 create token, 
-wallet - a place where you store ypur private keys - give access to your funds or tokens
+wallet - a place where you store your private keys - give access to your funds or tokens
 backpack - reopen artist hip thing omit side decline case miss echo ability young
 
 public key - which i can share with world - like our UPI ID
@@ -31,3 +31,28 @@ _____________________
 Creating account Eze5v7uFoR1vUf4cSAJHqpxcBkpubZiPyEvufNeQ7ort
 
 Signature: 59QmZH8DLHD1YpG7esVEom2LUfUCozMVUEvGdV9Rya5iG356Hti56Hh6fFwczBUyo9uUDWqzq1zVnRTmV1EJwvgW
+______________________________________________________________________________________________________________
+
+Blockchain - A chain of networks/computers/machines that secures the network itself for stuff. Main stuff - financing
+             Network - contains addressing of a bitcoin address to how much bitcoin they own.
+             Crux - Without any central authiurity, created a financing system
+            
+Ethereum - is a blockchain only + lets you deploy smart contracts on the bockchain.
+           Language - Solidity - to write these smart contracts
+           https://cryptozombies.io/ 
+
+Contract - is like the basic fundamental part of ethereum.
+           its juss like the class in java. Lets you store some data and have some methods associated with it and do stuff.
+           And some specific things too obvio. like we can store eth in a contract
+           Solidity's code is encapsulated in contracts.
+           So in solidity, mostly ,we're writing contracts and work with them.
+           All solidity source code should start with a "version pragma" — a declaration of the version of the Solidity compiler this code should use
+           Remember - State variables are permanently stored on the blockchain. 
+           Structs - similar to class (same meaning as in java/c++)
+
+["In web3, everything is stored on the blockchain/contracts only.(Backend+db all in contract)"]
+
+There're 2 ways to pass an argument - by value 
+                                      by reference
+It's a convetion to start a fxn arg variable name with an underscore _
+Solidity fxns are public by default.
