@@ -1,0 +1,24 @@
+useEffect() - lifecycle events, yep.
+              first time the dependency changes, code in useEffect runs.
+              The secind time the dependency changes, first the cleanup code (returned fxn) runs, then the useEffect-body code runs.
+              "Retured fxn/code is the cleanup code."
+              In case of empty arary, first code runs when compo mounted and cleanup code runs when unmounted.
+
+              1. useEffect with an empty dependency array - runs after the initial render
+              2. useEffect with dependencies - runs whenever the specified dependencies change
+              3. useEffect with a cleanup function - runs before the component is unmounted
+
+Custom hooks - Hooks that your create yourself, so others can use them
+    A custom hook has: 1. Uses another hook internally (useState, useEffect...)
+                       2. starts with use          
+
+    // swr - is a library that gives us data fetching hooks
+              // https://swr.vercel.app/docs/getting-started    
+
+REMEMBER: Normal JavaScript functions in React code generally cannot use Hooks directly                       
+          coz 1. Hooks rely on React's component lifecycle to function correctly. 
+                 They depend on being called at specific points during a component's rendering process. 
+                 Regular JavaScript functions don't have this lifecycle context.
+              2. Disallowing Hooks in regular functions helps maintain predictable behavior and simplifies debugging.  
+
+https://app.100xdevs.com/courses/3/178/185                        

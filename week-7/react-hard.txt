@@ -1,0 +1,117 @@
+Jargon
+    Single page application - on the first render only, a single page(bundle) containing full app code comes to client rather than hard reload
+                              Loads a single HTML page initially.
+                              Subsequent interactions and navigation are handled by dynamically updating the content on the page through JavaScript.
+                              Utilizes AJAX or Fetch API to communicate with the server and fetch data without reloading the entire page.                            
+
+    Client side bundle - bundle that you get from backend (bundle is mostly used for js)
+                         a collection of JavaScript files and other assets bundled together to be delivered to the client's web browser.
+
+    Client side routing - the code that you write as a dev
+
+What are routes? - paths
+                   to manage navigation and control the content displayed in your application based on the URL 
+How do you do routing in react? - react-router-dom (for webapps)
+                                  react-native (for mobile apps)
+                                  
+    BrowserRouter. Routes. Route.                              
+    How to navigate? - useNavigate() hook - makes sure its not doing hard reload. It just changes route keeping the same cliend bundle
+                                            "You cannot use useNavigate() outside a compo that is not inside BrowserRouter."
+["Whatevr uses useNavigate() needs to be in BrowserRouter"]                                            
+
+Lazy loading - not giving whole bundle. 
+               only giving needable bundle and then adding as required. 
+               to reduce the initial bundle size and improve the overall loading time of the application.
+               using the `React.lazy` function along with the `Suspense` component.
+
+export default xx - import xx from x
+export xx         - import {xx} from x                
+
+Suspense - for lazy loading, asynchronous component fetching, asynchronous data fetching
+           asynchronous component fetching - when we lazily load a component, it needs to be fetched from backend, right. so async.
+           so during that fetching what should react render? - Suspense, it has fallback option - defines what to display during the loading period
+
+
+["Push down your state as lowest as possible. "]
+
+Pop Drilling - passing props down the chain. makes the code ugly.
+               Prop drilling doesn't necessariiy mean that parent re-renders children and all, it just means the syntactic uneasiness when writing code
+               ofc the re-renders happen. But the concept propdrilling isnt intended for that. its for the ugkyness of code.
+
+Context API - lets us pass props betn components without drilling them down.  
+              It lets us TELEPORT data/props to components        
+              Lets us push the state logic outside the core react components.
+              It creates a context and a provider to wrap components that need access to that context.
+              has 2 parts - Context object and Provider.  
+                            Wrap anyone that wants to use the teleported value inside a contextObject.provider
+                            and pass the props to this Provider in value={}                
+
+["Context API is an alternative to prop drilling and provides a cleaner and more efficient way to manage and share state across your React components. It's not based on prop drilling but rather is designed to alleviate the need for it."]              
+
+Why do you use the context API?
+    - To make rendering more performant? - NO.
+      To make the syntax cleaer/get rid of prop drilling - YES.
+["Problem with Context - Doesn't fix re-rendering, only fixes propdrilling"]
+
+What is state management? - A cleaner way to store state of your app.
+                            We can have separate Component part and State part.
+                            Any codebase of react should be like State part + Component part
+
+Recoil - a state management library for React. 
+         Other popular ones are - Zustand, Redux
+         Let us divide react codebase into Component and State parts
+         Has a concept of an atom to store the state.
+         An atom can be defined outside the components.
+         Can be teleported to any component.                            
+         `npm install recoil`
+
+    atom. RecoilRoot. useRecoilState. userecoilvalue. useSetRecoilValue.     
+    
+    Atom - most smallest unit of state that you can store.
+           similar to useState
+            
+
+["Anything that uses the Recoil logic, needs to be wra pped  inside 'RecoilRoot"]         
+
+When you have a derived state, you use useMemo with that derived state as dependency
+
+    Selectors - A selector is a piece of derived state - like a output of passing state to a pure fxn that derives a new value from the said state.
+                when to use? - if you need - passing a state to a simple fxn, and it does something on it and give us some result/state, then we can use selector instead of that fxn/or extra state.
+                so, Selector is by default dependent on something.
+                `selector(key, get)` - get is a fxn where you describe how this selector depends on the atoms
+
+["Selector is derived from other atoms"]
+
+["The default value for an atom or an atomfamily cannot be a async value. Hence we use Selectors."]
+
+Asynchronous Data Queries
+    Selectors can be used as one way to incorporate async data into Recoil data-flow graph.
+    Data flow graph? - maps state and derived state to React components
+                       recoil provides it.
+    when? - if you know the default value of your atom comes from an async fxn    
+    how? - in the atom, we write that default is a selector.
+    `const atom = atom({
+        key : xyz,
+        default : selector({
+            key: abc, 
+            get : async() => {}
+        })
+    })` 
+    and here the get fxn can be asynchronous.              
+
+atomFamily - lets us dynamically create atoms.
+             returns a fxn that returns a writeable atom
+             sometimes you need more than one atom.
+     when? - when there are multiple things, and you want to create a dynamic atom for each todo.
+
+selectorFamily - retuns a selector fxn
+                 returns a read-only or RecoilValueReadOnly or a writeable RecoilState selector.     
+
+["For dynamic defaults based on other state/params use a `selectorFamily()`, wic also has access to the param value. Dont just use `selector()` for `atomFamily()` defaults, as it'd produce duplicate keys."]
+
+During async reqs, what happens when the backend call is hapeening?
+    how can we show a loader on screen when thats happening rather than an empty state? - one way is use Suspense or ErrorBoundary api.
+    Another way is `useRecoilStateLoadable`.
+    Its is an object having things like contents and state.
+        This `state` variable represnets whether or not this has resolved or not - like loading or hasValue or hasError.
+        and the `contents` has the actual values. (so it'll be like todo.contents.title)

@@ -1,0 +1,18 @@
+4 things to know in a frontend framework: 
+    1. Flex - lets you position elements right next to each other.  
+              if you want to keep things in same line 
+              `display:flex, justify-content:xyz`
+    2. Grids - ,
+    3. Responsiveness,
+    4. Background color, text color, hover 
+
+Tailwind - a css framework
+           Tailwind CSS works by scanning all of your HTML files, JavaScript components, and any other templates for `class names`, 
+           generating the corresponding styles and then writing them to a static CSS file. 
+
+How do you make the divs take diff width based on window size? - Responsiveness
+    Breakpoints - standard points/widths at which we chnage our layout
+                  like sm, md, lg, xl, 2xl,...  
+
+By default, tailwind uses a "mobile-first breakpoint sys".                  
+    - UNDERSTAND: unprifixed utilities take effect on all screen sizes, while prefixed utilities only take effect ar the specified breakpoint and above.
