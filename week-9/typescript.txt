@@ -1,0 +1,69 @@
+Typescript was introduced to add 'types' on top of javaScript.
+
+Typescript? - a prog lang - maintained and developed by Microsoft
+              Its a strict syntactical superset of javascript and adds optional static types to javascript.
+
+How does ts run?
+    "Typescript never runs in your browse/nodeJs. Browser only understands javascript."              
+    //Typescript doesn't run.
+    1. Javascript is the runtime lang.
+    2. Typescript is something that transfiles/compiles down to javascript.
+    3. We get 'type checking'. if error, the conversion fails.
+
+['You never run ts code. you convert it to js and the js runs.']    
+
+Installing ts in project - `tsc -b`
+                           This will create the tsconfig file. 
+
+    `tsc` is the official ts compiler thats used to convert ts to js.
+    There are others also: 1. esbuild
+                           2. swc
+
+    `tsconfig.json` - contains the config about how your js shpild convert to ts.                       
+    
+Types: string, number, any
+`any` is also a type. But say explicitely so.
+
+Type inference - ts can infer the return type of fxn based on inputs' types.
+
+ts.config file options: 
+
+- target - specifies theECMAScript target version to which the ts should compile 
+
+- rootDir - src folder - ts files are stored
+
+- outDir - dist folder - js files 
+         distribution
+         another common name is build
+         YOU NEVER PUSH YUOUR JS FILES TO GITHUB
+
+- noImplicitAny - if true means strict codebase   
+
+Interfaces - to assign types to objects
+             We can also implement interface as a class.
+
+Diff between interfaces and types?
+    We can implement interface as a class.
+    You need to put `=` in types.
+    Thet both help you to aggregate data.
+
+INTERFACES AND TYPES ARE NOT GENERATED IN JS FILE.
+
+Types let you do some extra things. - Unions, Intersection
+
+Enums - short for enumeration - means we can iterate over these things
+        a set of named constants
+        These constants are not meant to be changed during the execution of the program.
+        Just a virtual concept in ts. 'Javascript doesn't have Enums'.
+        We can give alternatives to print in final js code. (but if you've given one of them a alter name/type, you should give all of them a name.)
+        //Common usecase is - in express to return various status codes.
+                              easier relability
+
+Generics - to create multiple variation of your fsn                             
+
+Import and export in ts
+    Typescript follows the ES6 module system
+    uses `import` and `export` statements.
+    like `import express from "express"`
+         `export const a = 1`
+    also have default exports - means we dont have to destructure while importing

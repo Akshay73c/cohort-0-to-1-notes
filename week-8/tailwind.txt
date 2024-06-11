@@ -15,4 +15,4 @@ How do you make the divs take diff width based on window size? - Responsiveness
                   like sm, md, lg, xl, 2xl,...  
 
 By default, tailwind uses a "mobile-first breakpoint sys".                  
-    - UNDERSTAND: unprifixed utilities take effect on all screen sizes, while prefixed utilities only take effect ar the specified breakpoint and above.
+    - UNDERSTAND: unprefixed utilities take effect on all screen sizes, while prefixed utilities only take effect ar the specified breakpoint and above.
