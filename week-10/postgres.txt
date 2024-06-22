@@ -1,0 +1,35 @@
+Types of db:
+    NoSql - Schemaless, faster to produce apps
+    
+    Sql - strict schema, very hard to change schemas, involve migrations
+          RECOMMENDED - break complex data in diff tables 
+          Types: Postgres, MySQL, ...
+ 
+    Graph databases - data is stored in the form of graph.
+                      useful where relationships need to be stored (social networks)  
+
+    Vector databases - used in AI
+                       stores in vectors - LLMs
+
+SQL - required to 1. Define schema
+                  2. Put in data that follows this schema
+                  3. Update schema as your app changes and perform 'migrations'
+
+Lifecycle of SQL db :
+1. Bring up/ Run the db
+2. Using a lib that lets your connect/put data in it. 
+3. Define schema, create tables and run queries
+4. update schema - migrations - carefully managed changes that may add, remove, or alter tables and columns without losing data.            
+                               
+`SERIAL` - a Postgres specific data type for creating auto-incrementing integer.
+
+An SQL database runs on a database server, which can be hosted :locally on your development machine, 
+                                                                on-premises in your data center, 
+                                                                or in the cloud.
+and then to interact with an SQL database, you typically use a library or an ORM (Object-Relational Mapping) tool 
+
+pg library, a non-blocking PostgreSQL client for Node.js
+
+Relationships - let you store data in diff tables and relate it with each other
+      - Foreign keys.
+      
