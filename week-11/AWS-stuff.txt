@@ -1,0 +1,6 @@
+How do i keep running the server after we close our pc?
+    - using pm2 : is a process manager
+    - `npm i -g pm2`
+    - and then `pm2 start index.js`
+
+serve - helps you create a static site    

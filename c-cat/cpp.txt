@@ -1,0 +1,3 @@
+In C++, the memory must be de-allocated dynamically allocated memory manually after it is of no use.
+The allocation and deallocation of the memory can be done using the new and delete operators respectively.
+std::cout is an instance of the std::ostream class, that is used to display output on the screen
